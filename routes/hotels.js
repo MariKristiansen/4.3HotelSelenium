@@ -20,6 +20,7 @@ router.get('/:hotelId', async function (req, res, next) {
 	const hotel = await hotelService.getHotelDetails(req.params.hotelId, userId);
 	res.render('hotelDetails', { hotel: hotel, userId, username });
 });
+
 router.post('/:hotelId/rate', checkIfAuthorized, jsonParser, async function (req, res, next) {
 	let value = req.body.Value;
 	let userId = req.body.UserId;
